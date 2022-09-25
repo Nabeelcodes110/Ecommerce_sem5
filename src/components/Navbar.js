@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
+import { faShopware } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import 'font-awesome/css/font-awesome.min.css';
 
 export default class Navbar extends Component {
   render() {
     return (
       <div>
+        <script src="https://kit.fontawesome.com/57a35dc412.js" crossorigin="anonymous"></script>
         <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
     <a className="navbar-brand" href="/">AQSA CHIKAN ARTS</a>
@@ -12,6 +16,9 @@ export default class Navbar extends Component {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/"><FontAwesomeIcon icon={faShopware} /></a>
+        </li>
         <li className="nav-item">
           <a className="nav-link active" aria-current="page" href="/">Home</a>
         </li>
@@ -23,11 +30,11 @@ export default class Navbar extends Component {
             Categories
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/">Action</a></li>
-            <li><a className="dropdown-item" href="/">Another action</a></li>
-            <li><a className="dropdown-item" href="/">Another action</a></li>
-            <li><a className="dropdown-item" href="/">Another action</a></li>
-            <li><a className="dropdown-item" href="/">Another action</a></li>
+            <li><a className="dropdown-item" href="/">Cotton</a></li>
+            <li><a className="dropdown-item" href="/">Georgette</a></li>
+            <li><a className="dropdown-item" href="/">Modal</a></li>
+            <li><a className="dropdown-item" href="/">Chanderi</a></li>
+            <li><a className="dropdown-item" href="/">Mulmul</a></li>
           
           </ul>
         </li>

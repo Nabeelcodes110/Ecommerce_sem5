@@ -5,10 +5,10 @@ import 'D:/aqsa chikan arts/ecommerce/src/App.css';
 function IndividualIntervalsExample() {
   return (
     <Carousel>
-      <Carousel.Item interval={1000}>
+      <Carousel.Item interval={500}>
         <img
           id="carousel-image"
-          src="https://encrypted-tbn0.gstatic.com/carousel-images?q=tbn:ANd9GcRSdzFceiNraVzdPjfG5XD68emcVDzv2CTBBw&usqp=CAU"
+          src="https://cdn.discordapp.com/attachments/1000276792050982913/1023650887350096014/IMG-20220617-WA0010.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -19,7 +19,7 @@ function IndividualIntervalsExample() {
       <Carousel.Item interval={500}>
         <img
           id="carousel-image"
-          src="https://cdn.shopify.com/s/files/1/0489/2999/6961/products/061A9919_800x.jpg?v=1642507696"
+          src="https://cdn.discordapp.com/attachments/1000276792050982913/1023650887106834472/IMG-20220712-WA0000.jpg"
           alt="Second slide"
         />
         <Carousel.Caption>
@@ -30,7 +30,7 @@ function IndividualIntervalsExample() {
       <Carousel.Item>
         <img
           id="carousel-image"
-          src="https://encrypted-tbn0.gstatic.com/carousel-images?q=tbn:ANd9GcRSdzFceiNraVzdPjfG5XD68emcVDzv2CTBBw&usqp=CAU"
+          src="https://i.imgur.com/NYolWlsh.jpg"
           alt="Third slide"
         />
         <Carousel.Caption>
