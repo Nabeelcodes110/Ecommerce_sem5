@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { faShopware } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faShopware } from '@fortawesome/free-brands-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'font-awesome/css/font-awesome.min.css';
+// import { fa-solid fa-user-vneck } from '@fortawesome/react-fontawesome'
+import { FaUser } from "react-icons/fa";
 
 export default class Navbar extends Component {
   render() {
@@ -17,7 +19,7 @@ export default class Navbar extends Component {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/"><FontAwesomeIcon icon={faShopware} /></a>
+          <a className="nav-link active" aria-current="page" href="/"><FaUser/></a>
         </li>
         <li className="nav-item">
           <a className="nav-link active" aria-current="page" href="/">Home</a>

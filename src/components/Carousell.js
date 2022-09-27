@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/carousel';
-import 'D:/aqsa chikan arts/ecommerce/src/App.css';
+import 'F:/Final_Project/Ecommerce_sem5/src/App.js';
 
 
 function IndividualIntervalsExample() {

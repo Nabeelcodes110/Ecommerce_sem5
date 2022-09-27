@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Grid />
       <Carousell/>
+      <Grid />
       <Footer />
     </div>
   );

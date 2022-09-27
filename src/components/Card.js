@@ -1,4 +1,5 @@
 import React from 'react'
+import 'F:/Final_Project/Ecommerce_sem5/src/App.css';
 
 export default function Card(props) {
   return (
@@ -8,7 +9,8 @@ export default function Card(props) {
       <div className="card-body">
         <h5 className="card-title">{props.title}</h5>
         <p className="card-text">{props.price}...</p>
-        <a href='/' className="btn btn-sn btn-dark">Buy</a>
+        <a href='/' className="btn btn-sn btn-dark">Buy Now</a>
+        <a href='/' className="btn btn-sn btn-dark btnwidth">Add to Cart</a>
       </div>
     </div>
   </div>
