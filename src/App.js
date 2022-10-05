@@ -1,16 +1,10 @@
 import './App.css';
-import Carousell from './components/Carousell';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Grid from './components/Grid';
+import Home from './components/Home';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Carousell/>
-      <Grid />
-      <Footer />
+      <Home />
     </div>
   );
 }
