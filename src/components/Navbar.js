@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import 'font-awesome/css/font-awesome.min.css';
 // import { fa-solid fa-user-vneck } from '@fortawesome/react-fontawesome'
 import { FaUser } from "react-icons/fa";
@@ -6,8 +5,7 @@ import {Link} from 'react-router-dom'
 import Cart from './Cart';
 
 
-export default class Navbar extends Component {
-  render() {
+export default function Navbar(props) {
     return (
       <div>
         <script src="https://kit.fontawesome.com/57a35dc412.js" crossorigin="anonymous"></script>
@@ -42,7 +40,7 @@ export default class Navbar extends Component {
           </ul>
         </li>
       </ul>
-      <Cart items={0} />
+      <Cart items={props.itemCart} />
       <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
         <button className="btn btn-outline-success" type="submit">Search</button>
@@ -52,5 +50,4 @@ export default class Navbar extends Component {
 </nav>
       </div>
     )
-  }
 }

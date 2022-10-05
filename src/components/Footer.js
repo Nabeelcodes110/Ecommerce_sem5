@@ -14,13 +14,13 @@ export default function Footer() {
             </div>
 
             <div>
-            <a href="https://www.facebook.com/profile.php?id=100064212601439" className="me-4 text-reset">
+            <a href="https://www.facebook.com/profile.php?id=100064212601439" target="blank" className="me-4 text-reset">
                 <FontAwesomeIcon icon={faFacebook}/>
             </a>
-            <a href="https://instagram.com/aqsa_chikan_arts" className="me-4 text-reset">
+            <a href="https://instagram.com/aqsa_chikan_arts" target="blank" className="me-4 text-reset">
                 <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="https://www.indiamart.com/aqsachikanarts/" className="me-4 text-reset">
+            <a href="https://www.indiamart.com/aqsachikanarts/" target="blank" className="me-4 text-reset">
                <FontAwesomeIcon icon={faShopify} />
             </a>
             </div>
@@ -78,7 +78,7 @@ export default function Footer() {
                 <p><i className="fas fa-home me-3"></i>Mumbai , IN</p>
                 <p>
                     <i className="fas fa-envelope me-3"></i>
-                    <a href='mailto:aqsachikan@gmail.com'>aqsachikan@gmail.com </a>
+                    <a href='mailto:aqsachikan@gmail.com' target="blank">aqsachikan@gmail.com </a>
                 </p>
                 <p><i className="fas fa-phone me-3"></i> +91 9022881215</p>
                 <p><i className="fas fa-print me-3"></i> +91 8356866102</p>

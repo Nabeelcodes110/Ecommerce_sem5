@@ -1,6 +1,13 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom';
 
 export default function FeedsCard(props) {
+    const navigate = useNavigate();
+
+    const handleBuy = ()=>{
+        navigate('/checkout')
+    }
+
   return (
     <div>
         <div className="card mb-3" style={{'maxWidth':760}}>
@@ -14,8 +21,8 @@ export default function FeedsCard(props) {
                         <p className="card-text">{props.description} Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro omnis eligendi eos inventore, sunt aut possimus quae ea, consequatur voluptates placeat earum velit incidunt recusandae dolor consectetur odit quaerat iste.</p>
                         <p className="card-price">{props.price} rs</p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary btn-dark" type="button">Buy Now</button>
-                            <button class="btn btn-primary btn-dark" type="button">Add to Cart</button>
+                            <button class="btn btn-primary btn-dark" type="button" onClick={handleBuy}>Buy Now</button>
+                            <button class="btn btn-primary btn-dark" type="button" onClick={() => props.updateCart(props.itemCart + 1)}>Add to Cart</button>
                         </div>
                     </div>
                 </div>

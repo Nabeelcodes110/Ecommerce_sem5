@@ -1,8 +1,13 @@
+/* CAROUSEL */
+
 #carousel-image{
 height: 1000px;
 width: 100%;
 object-fit: contain;
 }
+
+/* CAROUSEL END */
+
 .card img{
     height: 350px;
 }
@@ -16,4 +21,31 @@ object-fit: contain;
   .card:hover {
     transform: scale(1.08);
   }
-  
+
+/* PROFILE */
+
+.prflcontainer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#profile_img img {
+  height: 200px;
+  width: 200px;
+}
+
+.image{
+  position: relative;
+}
+
+.info{
+  padding-left: 100px;
+  position: relative;
+}
+
+.info p{
+  font-style: bold;
+}
+
+/* PROFILE END */
