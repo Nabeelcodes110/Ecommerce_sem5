@@ -6,7 +6,7 @@ import { faFacebook ,faInstagram , faShopify } from '@fortawesome/free-brands-sv
 export default function Footer() {
   return (
     <div>
-        <script src="https://kit.fontawesome.com/57a35dc412.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/57a35dc412.js" crossOrigin="anonymous"></script>
         <footer className="text-center text-lg-start bg-light text-muted">
         <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <div className="me-5 d-none d-lg-block">

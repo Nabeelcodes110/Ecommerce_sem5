@@ -11,6 +11,8 @@ Route
 } from "react-router-dom";
 import Feed from './components/Feed';
 import Profile from './components/Profile';
+import Preview from './components/Preview';
+import Login from './components/Login'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,7 +25,10 @@ root.render(
           <Route path="/home" element={<Home/>}/>
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/feed' element={<Feed />} />
-          <Route path='profile' element={<Profile />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/preview' element={<Preview />} />
+          <Route path='/login' element={<Login />} />
+          
 
 
        </Routes>

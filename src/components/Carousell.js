@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 function IndividualIntervalsExample() {
   return (
     <Carousel>
-      <Carousel.Item interval={500}>
+      <Carousel.Item interval={1000}>
         <Link to="/feed">
         <img
           id="carousel-image"
@@ -19,7 +19,7 @@ function IndividualIntervalsExample() {
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={500}>
+      <Carousel.Item interval={1000}>
       <Link to="/feed">
         <img
           id="carousel-image"
@@ -32,7 +32,7 @@ function IndividualIntervalsExample() {
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={500}>
+      <Carousel.Item interval={1000}>
       <Link to="/feed">
         <img
           id="carousel-image"
