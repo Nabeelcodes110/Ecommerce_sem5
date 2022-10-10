@@ -2,17 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Checkout from './components/Checkout';
+import Checkout from './pages/Checkout.js';
 import reportWebVitals from './reportWebVitals';
-import Home from './components/Home';
+import Home from './pages/Home';
 import {BrowserRouter as Router ,
   Routes ,
 Route
 } from "react-router-dom";
-import Feed from './components/Feed';
-import Profile from './components/Profile';
-import Preview from './components/Preview';
-import Login from './components/Login'
+import Feed from './pages/Feed.js';
+import Profile from './pages/Profile.js';
+import Preview from './pages/Preview.js';
+import Login from './pages/Login.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

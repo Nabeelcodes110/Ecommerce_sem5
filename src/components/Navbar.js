@@ -1,9 +1,10 @@
 import 'font-awesome/css/font-awesome.min.css';
 // import { fa-solid fa-user-vneck } from '@fortawesome/react-fontawesome'
 import { FaUser } from "react-icons/fa";
-import {React}  from 'react'
+import { React } from 'react'
 import Cart from './Cart';
 import { useNavigate, Link } from 'react-router-dom';
+
 
 export default function Navbar(props) {
   const navigate = useNavigate();
@@ -11,6 +12,15 @@ export default function Navbar(props) {
     navigate('/login')
 
   }
+
+  const handleFabricCtn = () => props.setFabric("Cotton")
+  const handleFabricGgt = () => props.setFabric("Georgette")
+  const handleFabricChnd = () => props.setFabric("Chanderi")
+  const handleFabricMl = () => props.setFabric("Mulmul")
+  const handleFabricMdl = () => props.setFabric("Modal")
+
+
+
   return (
     <div>
       <script src="https://kit.fontawesome.com/57a35dc412.js" crossOrigin="anonymous"></script>
@@ -36,18 +46,18 @@ export default function Navbar(props) {
                   Categories
                 </a>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="/">Cotton</a></li>
-                  <li><a className="dropdown-item" href="/">Georgette</a></li>
-                  <li><a className="dropdown-item" href="/">Modal</a></li>
-                  <li><a className="dropdown-item" href="/">Chanderi</a></li>
-                  <li><a className="dropdown-item" href="/">Mulmul</a></li>
+                  <li><Link to="/feed" className="dropdown-item" onClick={handleFabricCtn}>Cotton</Link></li>
+                  <li><Link to="/feed" className="dropdown-item" onClick={handleFabricGgt}>Georgette</Link></li>
+                  <li><Link to="/feed" className="dropdown-item" onClick={handleFabricMdl}>Modal</Link></li>
+                  <li><Link to="/feed" className="dropdown-item" onClick={handleFabricChnd}>Chanderi</Link></li>
+                  <li><Link to="/feed" className="dropdown-item" onClick={handleFabricMl}>Mulmul</Link></li>
 
                 </ul>
               </li>
             </ul>
             <button type="button" className="btn btn-success mx-1">Signup</button>
             <button type="button" className="btn btn-success mx-1" onClick={handleLogin}>Login</button>
-            <Cart items={props.itemCart} updateCart = {props.updateCart}/>
+            <Cart items={props.itemCart} updateCart={props.updateCart} />
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>

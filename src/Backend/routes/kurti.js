@@ -19,4 +19,13 @@ router.post('/addKurti',async (req, res) => {
     }
 })
 
+router.get('/data/:fabric' , (req,res) => {
+    Kurti.find({fabric : req.params.fabric}).then(
+        kurti_data => res.json(kurti_data)
+    ).catch(error => {
+        console.log("catch error")
+    })
+
+})
+
 module.exports = router

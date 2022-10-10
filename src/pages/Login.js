@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
     const [credentials, setCredentials] = useState({ email: "", password: "" })
+    const [token, setToken] = useState("")
     const handleSubmit = async (e) => {
         e.preventDefault();
         let header = new Headers();
@@ -21,6 +23,7 @@ function Login() {
 
         const json = await response.json()
         console.log(json)
+        setToken(json)
     }
 
     const onChange = (e) => {
@@ -43,7 +46,7 @@ function Login() {
                     <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                 </div> */}
-                <button type="submit" className="btn btn-primary" >Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
 
         </div>

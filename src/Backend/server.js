@@ -1,5 +1,6 @@
 const express = require('express')
 const connectToMongoose = require('./database')
+const cors = require('cors')
 
 const app = express();
 connectToMongoose();
@@ -9,6 +10,7 @@ const port = 5000
 
 //middleware for using request
 app.use(express.json())
+app.use(cors())
 
 //Available routes
 app.use('/api/auth' , require('./routes/auth'))

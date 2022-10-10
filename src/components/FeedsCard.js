@@ -20,7 +20,10 @@ export default function FeedsCard(props) {
 
     const [itemDetail, updateDetail] = useState({ image: "", name: "", price: "" })
 
-    const handleAddCart = ()=> props.updateCart(props.itemCart + 1)
+    const handleAddCart = (event)=>{
+        event.preventDefault();
+         props.updateCart(props.itemCart + 1)
+    }
 
 
     return (
@@ -33,8 +36,9 @@ export default function FeedsCard(props) {
                     <div className="col-md-7">
                         <div className="card-body">
                             <h5 className="card-title">{props.title}</h5>
-                            <p className="card-text">{props.description} Lorem ipsum dolor, s possimus quae ea, consequatur voluptates placeat earum velit incidunt recusandae dolor consectetur odit quaerat iste.</p>
+                            <p className="card-text">{props.description}.</p>
                             <p className="card-price">Rs. {props.price}</p>
+                            <p className="card-price">color : {props.color}</p>
                             <div className="d-grid gap-2">
                                 <button className="btn btn-primary btn-dark" type="button" onClick={handleBuy}>Buy Now</button>
                                 <button className="btn btn-primary btn-dark" type="button" onClick={handleAddCart}>Add to Cart</button>
