@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 
@@ -10,28 +9,34 @@ export default function FeedsCard(props) {
         navigate('/checkout')
     }
 
-    const handleClick = (e) => {
-        updateDetail({ image: props.url, name: props.title, price: props.price })
-        navigate('/preview')
-        // e.preventDefault()
-        // return <FeedsCard image={itemDetail.image} name={itemDetail.name} price={itemDetail.price}/> ;
 
-    }
-
-    const [itemDetail, updateDetail] = useState({ image: "", name: "", price: "" })
-
-    const handleAddCart = (event)=>{
+    const handleAddCart = (event) => {
         event.preventDefault();
-         props.updateCart(props.itemCart + 1)
+        props.updateCart(props.itemCart + 1)
+        sessionStorage.setItem(props.name , {
+            name : props.name,
+            price : props.price,
+            description : props.description,
+            quantity : 1,
+            
+        })
     }
 
+    const handleClick = (e) => {
+        e.preventDefault();
+        props.setPreview({
+            name: props.name,
+            description: props.description,
+            price: props.price
+        })
+    }
 
     return (
         <div>
             <div className="card mb-3" style={{ 'maxWidth': 760 }}>
                 <div className="row g-0">
                     <div className="col-md-5">
-                        <Link to='/preview' onClick={handleClick}><img src={props.url} className="img-fluid rounded-start h-1" alt="..." /></Link>
+                        <Link to='/preview' ><img src={props.url} onClick={handleClick} className="img-fluid rounded-start h-1" alt="..." /></Link>
                     </div>
                     <div className="col-md-7">
                         <div className="card-body">
