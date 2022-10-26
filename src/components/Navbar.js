@@ -3,21 +3,18 @@ import 'font-awesome/css/font-awesome.min.css';
 import { FaUser } from "react-icons/fa";
 import { React } from 'react'
 import Cart from './Cart';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+// import { useEffect } from 'react';
 
 
 export default function Navbar(props) {
-  const navigate = useNavigate();
-  const handleLogin = () => {
-    navigate('/login')
-
-  }
 
   const handleFabricCtn = () => props.setFabric("Cotton")
   const handleFabricGgt = () => props.setFabric("Georgette")
   const handleFabricChnd = () => props.setFabric("Chanderi")
   const handleFabricMl = () => props.setFabric("Mulmul")
   const handleFabricMdl = () => props.setFabric("Modal")
+
 
 
 
@@ -39,7 +36,7 @@ export default function Navbar(props) {
                 <a className="nav-link active" aria-current="page" href="/">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">About</a>
+                <a className="nav-link" href="/about">About</a>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,9 +52,9 @@ export default function Navbar(props) {
                 </ul>
               </li>
             </ul>
-            <button type="button" className="btn btn-success mx-1">Signup</button>
-            <button type="button" className="btn btn-success mx-1" onClick={handleLogin}>Login</button>
-            <Cart items={props.itemCart} updateCart={props.updateCart} />
+            {!(localStorage.getItem('token') )&& <span><Link to='/signup'><button type="button" className="btn btn-success mx-1">Signup</button></Link>
+            <Link to='/login'><button type="button" className="btn btn-success mx-1">Login</button></Link> </span>}
+            <Link to='/checkout' style={{color:"green"}}><Cart items={props.itemCart} updateCart={props.updateCart}/></Link>
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>

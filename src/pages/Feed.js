@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar.js'
 
 
 
-export default function Feed() {
+export default function Feed(props) {
   const [itemCart, updateCart] = useState(0);
   const [fabric, setFabric] = useState("Cotton")
   const [kurti, setKurti] = useState([{
@@ -13,27 +13,27 @@ export default function Feed() {
     description: "",
     color: "",
     image_url: "",
-    price: "",
+    price: 0,
     fabric: ""
   }])
+  // const [cartInfo, setCartInfo] = useState([{
+  //   name: "",
+  //   description: "",
+  //   color: "",
+  //   image_url: "",
+  //   price: 0,
+  //   quantity: 0
+  // }])
+  const [preview , setPreview] = useState({name : "" , description :"" , price:""})
   
-  // axios.get(`http/localhost:5000/api/kurti/data/${fabric}`)
-  // .then(function (response) {
-  //   // handle success
-  //   console.log(response);
-  // })
-  // .catch(function (error) {
-  //   // handle error
-  //   console.log(error);
-  // })
-  // .then(function () {
-  //   // always executed
-  // });
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let header = new Headers();
+        
+
 
         header.append('Content-Type', 'application/json');
         header.append('Accept', 'application/json');
@@ -56,20 +56,24 @@ export default function Feed() {
     fetchData();
 
   } , [fabric])
+
+
  
 
 
 
   return (
     <div>
-      <Navbar itemCart={itemCart} updateCart={updateCart} fabric={fabric} setFabric={setFabric} />
+      <Navbar itemCart={itemCart} updateCart={updateCart} fabric={fabric} setFabric={setFabric} preview={preview} setPreview={setPreview}/>
       <h1>{fabric}</h1>
       <div className='container px-1'>
       <div className='row gx-6'>
         {kurti.map((k) => {
          return <div className='col-6 md-3'>
-         <FeedsCard url={k.image_url} title={k.name} description={k.description} price={k.price} color={k.color}/>
+         <FeedsCard url={k.image_url} title={k.name} description={k.description} price={k.price} color={k.color} itemCart = {itemCart} updateCart={updateCart} preview={preview} setPreview={setPreview} />
+         
          </div>
+
         })}
         </div>
     
@@ -79,7 +83,7 @@ export default function Feed() {
   )
 }
 
-{/* <div className='row gx-6'>
+/* <div className='row gx-6'>
           <div className='col-6 md-3'>
             <FeedsCard url='https://cdn.discordapp.com/attachments/1000276792050982913/1027259472453840896/IMG-20220830-WA0016.jpg' title='Kurti' description='123' price='1234' itemCart={itemCart} updateCart={updateCart} />
             <FeedsCard url='https://cdn.discordapp.com/attachments/1000276792050982913/1027259472827121674/IMG-20220823-WA0052.jpg' title='Kurti' description='123' price='1234' itemCart={itemCart} updateCart={updateCart} />
@@ -106,4 +110,4 @@ export default function Feed() {
             <FeedsCard url='https://cdn.discordapp.com/attachments/1000276792050982913/1027259948008218754/IMG-20220327-WA0034.jpg' title='Kurti' description='123' price='1234' itemCart={itemCart} updateCart={updateCart} />
 
           </div>
-        </div> */}
+        </div> */

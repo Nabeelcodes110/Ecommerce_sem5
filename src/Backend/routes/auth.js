@@ -10,10 +10,10 @@ const JWT_SIGN = "thisIsMySignature";
 
 
 
-router.post('/createUser', [body('name').isString().isLength({ min: 2 }),
-body('email').isEmail(),
-body('password').isLength({ min: 3 })],
+router.post('/createUser', [body('name').isString().isLength({ min: 2 }), 
+body('email').isEmail()],
   async (req, res) => {
+    let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -21,13 +21,27 @@ body('password').isLength({ min: 3 })],
     const salt = await bcrypt.genSalt(10);
     hashedPassword = await bcrypt.hash(req.body.password, salt)
     try {
-      const user = User.create({
+      const user =await User.create({
         name: req.body.name,
-        password: hashedPassword,
-        email: req.body.email
-      }).then(user => res.json(user));
+        email: req.body.email,
+        address : req.body.address,
+        town : req.body.town,
+        pin : req.body.pin,
+        phone : req.body.phone,
+        password: hashedPassword
+        
+      })
 
-      const token = jwt.sign({ user: user.id }, JWT_SIGN)
+
+      const data = {
+        user :{
+            id: user.id
+        }
+      }
+
+      const token = jwt.sign(data, JWT_SIGN)
+      success = true
+      res.json({success , token})
       console.log(token)
     }
 
@@ -42,6 +56,7 @@ body('password').isLength({ min: 3 })],
 router.post('/login' , [body('email').isEmail(),
 body('password', "Enter Valid password").exists()],
   async (req, res) => {
+    let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -58,12 +73,19 @@ body('password', "Enter Valid password").exists()],
         res.status(400).json({ error: "Wrong credentials" })
       }
 
-      const token = jwt.sign({ user: user.id }, JWT_SIGN)
-      res.json(token)
+      const data = {
+        user :{
+            id: user.id
+        }
+      }
+
+      const token = jwt.sign(data, JWT_SIGN)
+      success = true;
+      res.json({success , token})
 
     } catch (err) {
       console.log(err);
-      res.status(500).send("Internel server error");
+      res.status(400).send("Internel server error");
 
     }
 
@@ -74,13 +96,14 @@ body('password', "Enter Valid password").exists()],
 router.post('/getuser', fetchuser , async (req, res) => {
     try {
       userId = req.user;
-      const user = await User.findById(userId).select("-password")
+      console.log(userId.id)
+      const user = await User.findById(userId.id).select("-password")
       console.log(user)
       res.send(user)
 
     } catch (err) {
-      console.log(err);
-      res.status(500).send("Internel server error");
+      // console.log(err);
+      res.status(400).send("Internel server error");
 
     }
   })

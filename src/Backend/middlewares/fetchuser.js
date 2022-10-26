@@ -4,7 +4,6 @@ const JWT_SIGN = "thisIsMySignature";
 const fetchuser = (req,res,next) => {
 
     const token = req.headers['auth-token']
-    console.log(token)
     if(!token){
         res.status(401).send({error:"please authenticate using a valid token"})
     }

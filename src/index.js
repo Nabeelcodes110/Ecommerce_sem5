@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import About from './pages/About';
 import Checkout from './pages/Checkout.js';
 import reportWebVitals from './reportWebVitals';
+import Signup from './pages/Signup';
+// import Alert_to_cart from './components/Alert_to_cart'
 import Home from './pages/Home';
 import {BrowserRouter as Router ,
   Routes ,
@@ -23,11 +26,15 @@ root.render(
        <Routes>
           <Route path="/" element={<App />} />
           <Route path="/home" element={<Home/>}/>
+          <Route path="/about" element={<About/>}/>
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/feed' element={<Feed />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/preview' element={<Preview />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          {/* <Route path='/alert' element={<Alert_to_cart />} /> */}
+          
           
 
 
