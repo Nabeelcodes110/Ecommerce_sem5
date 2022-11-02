@@ -40,8 +40,10 @@ export default function Signup() {
     }
 
     return (
+        <>
+        <Navbar />
         <div className='container'>
-            <Navbar />
+            
             <form onSubmit={handleSubmit}>
                 <div className="form-group mb-2">
                     <label htmlFor="name">Name</label>
@@ -84,5 +86,6 @@ export default function Signup() {
             </form>
 
         </div>
+        </>
     )
 }

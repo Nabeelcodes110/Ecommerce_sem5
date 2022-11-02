@@ -54,7 +54,7 @@ body('email').isEmail()],
   })
 
 router.post('/login' , [body('email').isEmail(),
-body('password', "Enter Valid password").exists()],
+body('password', "Enter Valid password").exists() ],
   async (req, res) => {
     let success = false;
     const errors = validationResult(req);
@@ -68,9 +68,10 @@ body('password', "Enter Valid password").exists()],
       if (!user) {
         res.status(400).json({ error: "Wrong Credentials" })
       }
-      let comparePassword = await bcrypt.compare(password, user.password);
+      const comparePassword = await bcrypt.compare(password, user.password);
       if (!comparePassword) {
-        res.status(400).json({ error: "Wrong credentials" })
+        success = false
+        res.status(400).json({success , error: "Wrong credentials" })
       }
 
       const data = {
@@ -85,7 +86,7 @@ body('password', "Enter Valid password").exists()],
 
     } catch (err) {
       console.log(err);
-      res.status(400).send("Internel server error");
+      res.status(500).send('Internal server error');
 
     }
 

@@ -6,6 +6,7 @@ import About from './pages/About';
 import Checkout from './pages/Checkout.js';
 import reportWebVitals from './reportWebVitals';
 import Signup from './pages/Signup';
+import Proceed from './pages/Proceed';
 // import Alert_to_cart from './components/Alert_to_cart'
 import Home from './pages/Home';
 import {BrowserRouter as Router ,
@@ -16,6 +17,7 @@ import Feed from './pages/Feed.js';
 import Profile from './pages/Profile.js';
 import Preview from './pages/Preview.js';
 import Login from './pages/Login.js'
+import LoginPlease from './pages/LoginPlease';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -33,6 +35,8 @@ root.render(
           <Route path='/preview' element={<Preview />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/pleaselogin' element={<LoginPlease />} />
+          <Route path='/proceed' element={<Proceed />} />
           {/* <Route path='/alert' element={<Alert_to_cart />} /> */}
           
           

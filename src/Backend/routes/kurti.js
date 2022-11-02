@@ -5,7 +5,7 @@ const Kurti = require("../models/Kurti")
 
 router.post('/addKurti',async (req, res) => {
     try {
-        const kurti = Kurti.create({
+        const kurti = await Kurti.create({
             name : req.body.name,
             description: req.body.description,
             color : req.body.color,

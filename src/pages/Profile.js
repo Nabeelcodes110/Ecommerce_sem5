@@ -5,6 +5,7 @@ import '../App.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import LoginPlease from './LoginPlease';
+import OrderDetails from '../components/OrderDetails';
 // const jwt = require('jsonwebtoken');
 // const JWT_SIGN = "thisIsMySignature";
 
@@ -49,6 +50,7 @@ export default function Profile() {
         </div>
 
       </div>:<LoginPlease />}
+      <OrderDetails />
       <Footer />
     </div>
   )

@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <Carousell/>
+      <Carousell/><br/ ><br />
       <Grid />
       <Footer />
       

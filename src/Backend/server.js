@@ -15,6 +15,7 @@ app.use(cors())
 //Available routes
 app.use('/api/auth' , require('./routes/auth'))
 app.use('/api/kurti' , require('./routes/kurti'))
+app.use('/api/order' , require('./routes/order'))
 
 
 
