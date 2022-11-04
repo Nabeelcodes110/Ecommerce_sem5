@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const { json } = require('react-router-dom');
 const router = express.Router()
 const fetchuser = require('../middlewares/fetchuser');
 const Order  = require('../models/Order')
@@ -6,22 +7,27 @@ const Order  = require('../models/Order')
 
 router.post('/updateOrders' ,fetchuser, async (req,res)=>{
     try{
-        console.log("working 1")
         const orderDetail = await Order.create({
             user : req.user.id,
             totalPrice : req.body.totalPrice,
             quantity : req.body.quantity,
-            product : req.body.product
+            product : req.body.product,
+            image : req.body.image,
+            price : req.body.price,
+            color : req.body.color,
+            size : req.body.size
 
-        }).then(res => res)
-        console.log("working 2")
+        })
+        console.log(typeof(orderDetail))
+        console.log(orderDetail)
         res.json(orderDetail)
-        console.log("working 3")
+        return
 
     }
     catch(e){
         console.log(e)
         res.status(500).send("Internal server error")
+        return
 
     }
 })
@@ -29,6 +35,11 @@ router.post('/updateOrders' ,fetchuser, async (req,res)=>{
 
 router.get('/ordered' , fetchuser , async(req,res)=>{
     const orders = await Order.find({user : req.user.id});
+    if(orders===null){
+        res.json({"Nothing ordered yet" : 0})
+    }
+    // console.log(orders[0].timeStamp)
+    // console.log(typeof(orders))
     res.json(orders)
 
 })

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 
-const orderSchema = new mongoose.Schema({
+const orderSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -16,6 +16,22 @@ const orderSchema = new mongoose.Schema({
     },
     product: {
         type: String,
+        required: true
+    },
+    image : {
+        type : String,
+        required: true
+    },
+    price : {
+        type : Number,
+        required: true
+    },
+    size : {
+        type : Number,
+        required: true
+    },
+    color  :{
+        type : String,
         required: true
     },
     timeStamp: {

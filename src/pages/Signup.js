@@ -47,39 +47,39 @@ export default function Signup() {
             <form onSubmit={handleSubmit}>
                 <div className="form-group mb-2">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter Name" onChange={onChange} />
+                    <input required type="text" className="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter Name" onChange={onChange} />
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="email">Email address</label>
-                    <input type="email" className="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" onChange={onChange} />
+                    <input required type="email" className="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" onChange={onChange} />
                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="exampleInputEmail1">Blg / room  number</label>
-                    <input type="text" className="form-control" id="address" name='address' aria-describedby="emailHelp" placeholder="Enter Blg/Romm No eg : Monalisa B/04" onChange={onChange} />
+                    <input required type="text" className="form-control" id="address" name='address' aria-describedby="emailHelp" placeholder="Enter Blg/Romm No eg : Monalisa B/04" onChange={onChange} />
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="text">Town Name</label>
-                    <input type="text" className="form-control" id="town" name='town' aria-describedby="emailHelp" placeholder="Enter town name eg : Andheri" onChange={onChange} />
+                    <input required type="text" className="form-control" id="town" name='town' aria-describedby="emailHelp" placeholder="Enter town name eg : Andheri" onChange={onChange} />
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="exampleInputEmail1">Pin code</label>
-                    <input type="text" className="form-control" id="pincode" name='pin' aria-describedby="emailHelp" placeholder="Enter pincode eg: 400001" onChange={onChange} />
+                    <input required type="text" className="form-control" id="pincode" name='pin' aria-describedby="emailHelp" placeholder="Enter pincode eg: 400001" onChange={onChange} />
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="phone">phone number</label>
-                    <input type="text" className="form-control" id="phone" name='phone' aria-describedby="emailHelp" placeholder="Enter phone Number" onChange={onChange} />
+                    <input required type="text" className="form-control" id="phone" name='phone' aria-describedby="emailHelp" placeholder="Enter phone Number" maxLength={10} onChange={onChange} />
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="password">Password</label>
-                    <input type="password" className="form-control" id="password" name='password' placeholder="Password" onChange={onChange} />
+                    <input required type="password" className="form-control" id="password" name='password' placeholder="Password" onChange={onChange} />
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="cpassword">Confirm Password</label>
-                    <input type="password" className="form-control" id="cpassword" name="cpassword" placeholder="confirm Password" onChange={onChange} />
+                    <input required type="password" className="form-control" id="cpassword" name="cpassword" placeholder="confirm Password" onChange={onChange} />
                 </div>
                 <div className="form-group form-check mb-2">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                    <input required type="checkbox" className="form-check-input" id="exampleCheck1" />
                     <label className="form-check-label" htmlFor="exampleCheck1">agree terms & conditions</label>
                 </div>
                 <button type="submit" className="btn btn-primary" onSubmit={handleSubmit}>Submit</button>

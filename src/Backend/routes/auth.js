@@ -9,7 +9,6 @@ const JWT_SIGN = "thisIsMySignature";
 
 
 
-
 router.post('/createUser', [body('name').isString().isLength({ min: 2 }), 
 body('email').isEmail()],
   async (req, res) => {
@@ -67,11 +66,13 @@ body('password', "Enter Valid password").exists() ],
       let user = await User.findOne({ email });
       if (!user) {
         res.status(400).json({ error: "Wrong Credentials" })
+        return;
       }
       const comparePassword = await bcrypt.compare(password, user.password);
       if (!comparePassword) {
         success = false
         res.status(400).json({success , error: "Wrong credentials" })
+        return;
       }
 
       const data = {
@@ -87,6 +88,7 @@ body('password', "Enter Valid password").exists() ],
     } catch (err) {
       console.log(err);
       res.status(500).send('Internal server error');
+      return;
 
     }
 
