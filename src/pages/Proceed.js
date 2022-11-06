@@ -22,8 +22,6 @@ export default function Proceed() {
                 })
                 const detail = await details.json()
                 console.log(detail)
-
-
             })
 
             navigate('/profile')

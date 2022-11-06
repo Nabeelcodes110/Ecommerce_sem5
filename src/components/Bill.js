@@ -28,7 +28,7 @@ export default function Bill(props) {
                         k = JSON.parse(k)
                         return (
                             <tr className="table-light">
-                                <td>{k.name}  x  {k.quantity}</td>
+                                <td>{k.name}(Size. {k.size})  x  {k.quantity}</td>
                                 <td> ₹  {k.price * k.quantity} </td>
                             </tr>
                         )

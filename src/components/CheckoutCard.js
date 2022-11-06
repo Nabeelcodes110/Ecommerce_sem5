@@ -40,6 +40,9 @@ export default function CheckoutCard(props) {
     }
 
     useEffect(()=>{
+        // if(qty===0){
+        //     sessionStorage.removeItem(props.name+props.size)
+        // }
         console.log(qty)
     },[props.render])
     

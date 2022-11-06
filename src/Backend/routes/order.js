@@ -35,9 +35,9 @@ router.post('/updateOrders' ,fetchuser, async (req,res)=>{
 
 router.get('/ordered' , fetchuser , async(req,res)=>{
     const orders = await Order.find({user : req.user.id});
-    if(orders===null){
-        res.json({"Nothing ordered yet" : 0})
-    }
+    // if(orders===null){
+    //     res.json({"Nothing ordered yet" : 0})
+    // }
     // console.log(orders[0].timeStamp)
     // console.log(typeof(orders))
     res.json(orders)

@@ -24,7 +24,7 @@ export default function Checkout() {
             console.log(typeof (k))
             k = JSON.parse(k)
             // console.log(k.quantity)
-            return ( <CheckoutCard className="py-2" img={k.url} quantity={k.quantity} name={k.name} description={k.description} price={k.price} size={k.size} render={render} setRender={setRender}/>)
+            return ( <CheckoutCard className="py-2" img={k.url} color={k.color} quantity={k.quantity} name={k.name} description={k.description} price={k.price} size={k.size} render={render} setRender={setRender}/>)
             
            
           })

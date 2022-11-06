@@ -1,33 +1,38 @@
 import React from 'react'
+import { useState } from 'react';
 // import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 
 export default function FeedsCard(props) {
     const navigate = useNavigate();
+    const [size , setSize] = useState(36)
+    const handleChange = (event)=>{
+        setSize(event.target.value)
+    }
 
     const handleBuy = () => {
-        if (sessionStorage.getItem(props.title) && sessionStorage.getItem(props.title).size!==document.getElementById('size').value) {
-            let qty = JSON.parse(sessionStorage.getItem(props.title)).quantity
+        if (sessionStorage.getItem(props.title + size)) {
+            let qty = JSON.parse(sessionStorage.getItem(props.title + size)).quantity
             // console.log(qty)
-            sessionStorage.setItem(props.title+document.getElementById('size').value, JSON.stringify({
+            sessionStorage.setItem(props.title +size, JSON.stringify({
                 url: props.url,
                 name: props.title,
                 price: props.price,
                 color: props.color,
-                size : document.getElementById('size').value,
+                size: size,
                 description: props.description,
                 quantity: qty + 1,
 
             }))
         }
         else {
-            sessionStorage.setItem(props.title+document.getElementById('size').value, JSON.stringify({
+            sessionStorage.setItem(props.title + size, JSON.stringify({
                 url: props.url,
                 name: props.title,
                 price: props.price,
                 color: props.color,
-                size : document.getElementById('size').value,
+                size: size,
                 description: props.description,
                 quantity: 1,
 
@@ -43,26 +48,26 @@ export default function FeedsCard(props) {
             alert("You are not logged in . Please Login inorder to shop")
         }
         props.updateCart(props.itemCart + 1)
-        if (sessionStorage.getItem(props.title+document.getElementById('size').value)) {
-            let qty = JSON.parse(sessionStorage.getItem(props.title+document.getElementById('size').value)).quantity
-            sessionStorage.setItem(props.title+document.getElementById('size').value, JSON.stringify({
+        if (sessionStorage.getItem(props.title +size)) {
+            let qty = JSON.parse(sessionStorage.getItem(props.title + size)).quantity
+            sessionStorage.setItem(props.title + size, JSON.stringify({
                 url: props.url,
                 name: props.title,
                 price: props.price,
                 color: props.color,
-                size : document.getElementById('size').value,
+                size: size,
                 description: props.description,
                 quantity: qty + 1,
 
             }))
         }
         else {
-            sessionStorage.setItem(props.title+document.getElementById('size').value, JSON.stringify({
+            sessionStorage.setItem(props.title +size, JSON.stringify({
                 url: props.url,
                 name: props.title,
                 price: props.price,
                 color: props.color,
-                size : document.getElementById('size').value,
+                size: size,
                 description: props.description,
                 quantity: 1,
 
@@ -95,13 +100,13 @@ export default function FeedsCard(props) {
                             <p className="card-text">{props.description}.</p>
                             <p className="card-price">₹ {props.price}</p>
                             <p className="card-price">color : {props.color}</p>
-                            <span>Size : </span><select id='size' className='sizes mb=1'>
-                                <option>36</option>
-                                <option>38</option>
-                                <option>40</option>
-                                <option>42</option>
-                                <option>44</option>
-                                <option>46</option>
+                            <span>Size : </span><select id='size' className='sizes mb=1' onChange={handleChange}>
+                                <option value={36}>36</option>
+                                <option value={38}>38</option>
+                                <option value={40}>40</option>
+                                <option value={42}>42</option>
+                                <option value={44}>44</option>
+                                <option value={46}>46</option>
                             </select>
                             <div className="d-grid gap-2">
                                 <button className="btn btn-primary btn-dark mt-2" type="button" onClick={handleBuy}>Buy Now</button>
