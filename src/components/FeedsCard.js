@@ -10,7 +10,7 @@ export default function FeedsCard(props) {
         if (sessionStorage.getItem(props.title) && sessionStorage.getItem(props.title).size!==document.getElementById('size').value) {
             let qty = JSON.parse(sessionStorage.getItem(props.title)).quantity
             // console.log(qty)
-            sessionStorage.setItem(props.title, JSON.stringify({
+            sessionStorage.setItem(props.title+document.getElementById('size').value, JSON.stringify({
                 url: props.url,
                 name: props.title,
                 price: props.price,
@@ -22,7 +22,7 @@ export default function FeedsCard(props) {
             }))
         }
         else {
-            sessionStorage.setItem(props.title, JSON.stringify({
+            sessionStorage.setItem(props.title+document.getElementById('size').value, JSON.stringify({
                 url: props.url,
                 name: props.title,
                 price: props.price,
@@ -43,10 +43,9 @@ export default function FeedsCard(props) {
             alert("You are not logged in . Please Login inorder to shop")
         }
         props.updateCart(props.itemCart + 1)
-        if (sessionStorage.getItem(props.title)) {
-            let qty = JSON.parse(sessionStorage.getItem(props.title)).quantity
-            // console.log(qty)
-            sessionStorage.setItem(props.title, JSON.stringify({
+        if (sessionStorage.getItem(props.title+document.getElementById('size').value)) {
+            let qty = JSON.parse(sessionStorage.getItem(props.title+document.getElementById('size').value)).quantity
+            sessionStorage.setItem(props.title+document.getElementById('size').value, JSON.stringify({
                 url: props.url,
                 name: props.title,
                 price: props.price,
@@ -58,7 +57,7 @@ export default function FeedsCard(props) {
             }))
         }
         else {
-            sessionStorage.setItem(props.title, JSON.stringify({
+            sessionStorage.setItem(props.title+document.getElementById('size').value, JSON.stringify({
                 url: props.url,
                 name: props.title,
                 price: props.price,
@@ -96,7 +95,7 @@ export default function FeedsCard(props) {
                             <p className="card-text">{props.description}.</p>
                             <p className="card-price">₹ {props.price}</p>
                             <p className="card-price">color : {props.color}</p>
-                            <span>Size : </span><select id='size' className='sizes mb=1' defaultValue={36}>
+                            <span>Size : </span><select id='size' className='sizes mb=1'>
                                 <option>36</option>
                                 <option>38</option>
                                 <option>40</option>

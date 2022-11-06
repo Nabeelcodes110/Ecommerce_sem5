@@ -1,16 +1,26 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { useState } from 'react'
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Signup() {
     const navigate = useNavigate();
-    const [details, setDetails] = useState({ name: "" , email: "", adress: "" , town: "" ,pin : "", phone : "" , password: "" , cpassword : ""})
+    const [details, setDetails] = useState({ name: "", email: "", adress: "", town: "", pin: "", phone: "", password: "", cpassword: "" })
 
     const handleSubmit = async (e) => {
+        const check = ()=>{
+            if(details.password !== details.cpassword){
+                alert('both password field must have same value');
+                return false;
+            }
+        }
+        if(check()){
+
+        } 
+       else {
         e.preventDefault();
         let header = new Headers();
-        
+
 
         header.append('Content-Type', 'application/json');
         header.append('Accept', 'application/json');
@@ -21,29 +31,31 @@ export default function Signup() {
         const response = await fetch("http://localhost:5000/api/auth/createUser", {
             method: 'POST',
             headers: header,
-            body: JSON.stringify({name : details.name  , email: details.email, address : details.address  , town : details.town , pin : details.pin , phone : details.phone , password: details.password , cpassword:details.cpassword})
+            body: JSON.stringify({ name: details.name, email: details.email, address: details.address, town: details.town, pin: details.pin, phone: details.phone, password: details.password, cpassword: details.cpassword })
         });
         const json = await response.json();
         console.log(json)
-        if(json.success){
+        if (json.success) {
+            alert('You signed up successfully now you can login!!!')
             navigate('/')
         }
-        else{
-            alert('wrong credent')
+        else {
+            alert('wrong credentials')
         }
-
-
-    }
-    const onChange = (e) => {
-        setDetails({ ...details, [e.target.name]: e.target.value })
-
     }
 
-    return (
-        <>
+
+}
+const onChange = (e) => {
+    setDetails({ ...details, [e.target.name]: e.target.value })
+
+}
+
+return (
+    <>
         <Navbar />
         <div className='container'>
-            
+
             <form onSubmit={handleSubmit}>
                 <div className="form-group mb-2">
                     <label htmlFor="name">Name</label>
@@ -68,15 +80,15 @@ export default function Signup() {
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="phone">phone number</label>
-                    <input required type="text" className="form-control" id="phone" name='phone' aria-describedby="emailHelp" placeholder="Enter phone Number" maxLength={10} onChange={onChange} />
+                    <input required type="text" className="form-control" id="phone" name='phone' aria-describedby="emailHelp" placeholder="Enter phone Number" maxLength={10} minLength={10} onChange={onChange} />
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="password">Password</label>
-                    <input required type="password" className="form-control" id="password" name='password' placeholder="Password" onChange={onChange} />
+                    <input required type="password" className="form-control" id="password" name='password' placeholder="Password" minLength={5} onChange={onChange} />
                 </div>
                 <div className="form-group mb-2">
                     <label htmlFor="cpassword">Confirm Password</label>
-                    <input required type="password" className="form-control" id="cpassword" name="cpassword" placeholder="confirm Password" onChange={onChange} />
+                    <input required type="password" className="form-control" id="cpassword" name="cpassword" placeholder="confirm Password" minLength={5} onChange={onChange} />
                 </div>
                 <div className="form-group form-check mb-2">
                     <input required type="checkbox" className="form-check-input" id="exampleCheck1" />
@@ -86,6 +98,6 @@ export default function Signup() {
             </form>
 
         </div>
-        </>
-    )
+    </>
+)
 }

@@ -23,13 +23,14 @@ export default function OrderDetails() {
 
     }
     getOrders()
-  } , [order])
+  } , [])
   return (
     <div>
       <h1> Your Orders : </h1>
       <div className='row gx-5'>
         {order.map((i) => {
-          return <div className='col-md-4'><OrderCard name={i.product} price={i.price} quantity={i.quantity} totalPrice={i.totalPrice} image={i.image} color={i.color} size={i.size} date={i.timeStamp}/></div>
+          // i.timeStamp = String(Date(i.timeStamp).toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }))
+          return <div className='col-md-4'><OrderCard name={i.product} price={i.price} quantity={i.quantity} totalPrice={i.totalPrice} image={i.image} color={i.color} size={i.size} date={i.timeStamp} id={i._id}/></div>
         })
 
         }

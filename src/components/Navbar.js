@@ -23,7 +23,7 @@ export default function Navbar(props) {
       <script src="https://kit.fontawesome.com/57a35dc412.js" crossOrigin="anonymous"></script>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">AQSA CHIKAN ARTS</a>
+          <a className="navbar-brand" href="/"><link rel="icon" href="solvent.png" /><img src='solvent.png' alt='Logo' height={24} style={{'marginBottom':7 , 'marginRight':6}}></img>AQSA CHIKAN ARTS</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

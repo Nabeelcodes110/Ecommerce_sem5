@@ -20,6 +20,10 @@ router.post('/addKurti',async (req, res) => {
 })
 
 router.get('/data/:fabric' , (req,res) => {
+    if(req.params.fabric === "All"){
+        Kurti.find({}).then(kurti_data => res.json(kurti_data))
+        return;
+    }
     Kurti.find({fabric : req.params.fabric}).then(
         kurti_data => res.json(kurti_data)
     ).catch(error => {

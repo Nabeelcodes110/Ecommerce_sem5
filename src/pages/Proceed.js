@@ -41,11 +41,11 @@ export default function Proceed() {
                 <form className="row g-3" onSubmit={handleSubmit}>
                     <div className="col-md-6">
                         <label htmlFor="inputEmail4" className="form-label">Contact 1</label>
-                        <input required  type="number" className="form-control" id="inputEmail4" maxLength={10}/>
+                        <input required  type="tel" className="form-control" id="inputEmail4" maxLength={10} minLength={10}/>
                     </div>
                     <div className="col-md-6">
                         <label htmlFor="inputPassword4" className="form-label">Contact 2</label>
-                        <input required type="number" className="form-control" id="inputPassword4" maxLength={10}/>
+                        <input required type="tel" className="form-control" id="inputPassword4" maxLength={10} minLength={10}/>
                     </div>
                     <div className="col-12">
                         <label htmlFor="inputAddress" className="form-label">Building / Landmark</label>
