@@ -49,3 +49,29 @@ object-fit: contain;
 }
 
 /* PROFILE END */
+
+
+
+/* ABOUT PAGE   */
+.abt-table{
+  font-size: 16px;
+  /* border: 2px solid black;
+  border-radius: 10px; */
+}
+
+.abt-table td{
+  padding-left: 30px;
+  padding-right: 40px;
+  /* border: 2px solid black; */
+}
+
+.abt-table th{
+  padding-left: 20px;
+  /* border: 2px solid black; */
+}
+
+.abtimg{
+  border-radius: 30px;
+}
+
+/* ABOUT PAGE  END */

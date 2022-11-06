@@ -14,13 +14,13 @@ export default function About() {
         <h2 className="lead" align="justify">Established in year <b>1994, “Aqsa Chikan Arts”</b> is Manufacturing and Wholesale Trading of <b>Ladies Chikan Kurtis, Ladies Georgette Kurti, Ladies Cotton Kurtis etc.</b></h2>
         <br/>
         <hr className="featurette-divider" />
-        <table borderless className="abt-table" align='center' width={420}>
+        <table borderless className="abt-table">
         <thead>
           <tr>
             <th colSpan={2} style={{textAlign:"center" }}><h4>FACTSHEET</h4></th>
           </tr>
           <tr>
-          <th colSpan={2}><center>Basic Information</center></th>
+          <th colSpan={2}>Basic Information</th>
           </tr>
         </thead>
         <tbody>
@@ -45,7 +45,7 @@ export default function About() {
           <td>Partnership Firm</td>
           </tr>
           <tr>
-          <th colSpan={2}><center>Trade & Market</center></th>
+          <th colSpan={2}>Trade & Market</th>
           </tr>
           <tr>
           <td>Export Percentage</td>
@@ -105,7 +105,8 @@ export default function About() {
     <hr className="featurette-divider" />
     <Footer />
   </div>
-
-
   )
 }
+
+
+
